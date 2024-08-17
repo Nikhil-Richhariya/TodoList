@@ -1,0 +1,90 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+    padding : 0; 
+}
+body {
+    background-color: rgb(207, 225, 241);
+}
+
+/* -----------------------------TodoInput----------------------------------- */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top : 2rem;
+}
+
+input {
+    width: 80%;
+    height : 3rem; 
+    padding : 0.5rem; 
+    background-color: white;
+    border-radius : 5px;
+    border : none;  
+}
+
+input:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(87, 86, 86, 0.8);
+}
+
+#add {
+    width: 15%;
+    height : 3rem; 
+    padding : 0.5rem;
+    border-radius : 5px;
+    background-color: white;
+    border:none ; 
+    color : black;
+    background-color: rgb(59, 231, 59);
+}
+
+#add:hover {
+    box-shadow: 0 0 5px rgba(87, 86, 86, 0.8);
+    cursor : pointer; 
+}
+
+
+/* -----------------------------TodoList----------------------------------- */
+.list{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top : 2rem;
+}
+
+.todo-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    border-radius: 5px;
+    width: 100%;
+    color: #1b1b1b; 
+    margin-top: 1rem ;
+    margin-bottom: 1rem;
+    padding : 0.5rem; 
+    height: 3rem; 
+}
+
+
+/* -----------------------------TodoCard----------------------------------- */
+.manage-task-list-item{
+    width: 8%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.Trash2 {
+    cursor: pointer;
+}
+
+.SquarePen {
+    cursor: pointer;
+}
+
