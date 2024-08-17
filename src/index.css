@@ -79,12 +79,3 @@ input:focus {
     display: flex;
     justify-content: space-around;
 }
-
-.Trash2 {
-    cursor: pointer;
-}
-
-.SquarePen {
-    cursor: pointer;
-}
-

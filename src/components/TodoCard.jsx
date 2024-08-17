@@ -1,24 +1,22 @@
 import React from 'react'
-import { SquarePen } from 'lucide-react';
-import { Trash2 } from 'lucide-react';
+// import { SquarePen } from 'lucide-react';
+// import { Trash2 } from 'lucide-react';
 
 const TodoCard = (props) => {
-  const {children, handleDeleteTodos,idx,handleUpdateTodos} = props;
+  const { children, handleDeleteTodos, idx, handleUpdateTodos } = props;
 
   return (
     <li className='todo-item'>
       {children}
       <div className="manage-task-list-item">
-        <SquarePen className='SquarePen'
+        <i class="fa-solid fa-arrow-up-right-from-square"
           onClick={() => {
             handleUpdateTodos(idx);
-          }}
-        />
-        <Trash2 className='Trash2'
-
-          onClick={() => {handleDeleteTodos(idx)}}
-        
-        /> 
+          }}>
+        </i>
+        <i class="fa-solid fa-trash"
+          onClick={() => { handleDeleteTodos(idx) }}>
+        </i>
       </div>
     </li>
   )
