@@ -1,16 +1,25 @@
-import React, { useState } from 'react'
+
+import React from 'react'
 import TodoCard from './TodoCard'
 
-
-const TodoList = ({todos,handleDeleteTodos,handleUpdateTodos}) => {
-
+const TodoList = ({ todos, handleDeleteTodos, handleUpdateTodos, handleIsComplete }) => {
   return (
     <ul className='list'>
       {
         todos.map((task, idx) => {
+
+          const {content,done} = task ;  
+          // console.log(task)
           return (
-            <TodoCard idx = {idx} handleDeleteTodos = {handleDeleteTodos} handleUpdateTodos = {handleUpdateTodos}>
-              <p>{task}</p>
+            <TodoCard 
+              key={idx} 
+              idx={idx} 
+              handleDeleteTodos={handleDeleteTodos} 
+              handleUpdateTodos={handleUpdateTodos} 
+              handleIsComplete={handleIsComplete} 
+              done={done}
+            >
+              <p>{content}</p>
             </TodoCard>
           )
         })

@@ -20,7 +20,7 @@ header {
 }
 
 input {
-    width: 80%;
+    width: 75%;
     height : 3rem; 
     padding : 0.5rem; 
     background-color: white;
@@ -75,7 +75,15 @@ input:focus {
 
 /* -----------------------------TodoCard----------------------------------- */
 .manage-task-list-item{
-    width: 15%;
+    width: 20%;
     display: flex;
     justify-content: space-around;
+}
+
+
+/* -----------------------------CheckTask----------------------------------- */
+
+#check {
+    display: inline;
+    color : #04ff00;
 }

@@ -13,7 +13,13 @@ const App = () => {
 
 
   const handleAddTodos = (newTodo) => {
-    const newTodoList = [...todos, newTodo];
+
+    if(!newTodo) {
+      return ; 
+    }
+
+
+    const newTodoList = [...todos, {content : newTodo, done : false}];
     persistData(newTodoList);
     setTodos(newTodoList);
   }
@@ -28,10 +34,19 @@ const App = () => {
   }
 
   const handleUpdateTodos = (idx) => {
-    setTask(todos[idx]);
+    setTask(todos[idx].content);
     handleDeleteTodos(idx);
   }
 
+  const handleIsComplete = (idx) => {
+    const newTodoList = todos.map((todo, todoIdx) => 
+      todoIdx == idx ? { ...todo, done: !todo.done } : todo
+    );
+
+    persistData(newTodoList);
+    setTodos(newTodoList);
+    // console.log("called")
+  }
   useEffect(() => {
     if (!localStorage) return;
 
@@ -48,7 +63,7 @@ const App = () => {
   return (
     <main>
       <TodoInput handleAddTodos={handleAddTodos} task={task} setTask={setTask} />
-      <TodoList todos={todos} handleDeleteTodos={handleDeleteTodos} handleUpdateTodos={handleUpdateTodos} />
+      <TodoList todos={todos} handleDeleteTodos={handleDeleteTodos} handleUpdateTodos={handleUpdateTodos} handleIsComplete = {handleIsComplete} />
     </main>
   )
 }
