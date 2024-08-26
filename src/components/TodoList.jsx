@@ -20,7 +20,7 @@ const TodoList = ({ todos, handleDeleteTodos, handleUpdateTodos, handleIsComplet
               handleIsComplete={handleIsComplete} 
               done={done}
             >
-              <p>{content}</p>
+              <p>{done ? <s>{content}</s> : content}</p>
             </TodoCard>
           )
         })

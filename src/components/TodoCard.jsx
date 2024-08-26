@@ -7,7 +7,7 @@ const TodoCard = (props) => {
   const { children, handleDeleteTodos, idx, handleUpdateTodos, handleIsComplete, done } = props;
 
   return (
-    <li className='todo-item'>
+    <li className={ done ? 'todo-item2' : 'todo-item'}>
       {children}
       <div className="manage-task-list-item">
 
