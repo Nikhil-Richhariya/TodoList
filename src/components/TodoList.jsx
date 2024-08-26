@@ -9,7 +9,8 @@ const TodoList = ({ todos, handleDeleteTodos, handleUpdateTodos, handleIsComplet
         todos.map((task, idx) => {
 
           const {content,done} = task ;  
-          // console.log(task)
+          // console.log("11111111task : ", task)
+          // console.log("111contnet",content)
           return (
             <TodoCard 
               key={idx} 

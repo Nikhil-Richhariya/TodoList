@@ -8,30 +8,30 @@ const App = () => {
   const [task, setTask] = useState("")
 
   function persistData(newList) {
-    localStorage.setItem('todos', JSON.stringify({todos : newList}));
+    localStorage.setItem('todos', JSON.stringify({ todos: newList }));
   }
 
 
   const handleAddTodos = (newTodo) => {
 
-    if(!newTodo) {
-      return ; 
+    if (!newTodo) {
+      return;
     }
-
-
-    const newTodoList = [...todos, {content : newTodo, done : false}];
-    persistData(newTodoList);
+    const newTodoList = [...todos, { content: newTodo, done: false }];
+    
     setTodos(newTodoList);
+    persistData(newTodoList);
+    
   }
 
   const handleDeleteTodos = (idx) => {
-    const newTodoList = todos.filter((_, todoIdx) => {
-      return todoIdx != idx;
-    })
-
-    persistData(newTodoList);
+    // console.log("berfore",todos)
+    const newTodoList = todos.filter((_, index) => index !== idx);
     setTodos(newTodoList);
-  }
+    // console.log("after",newTodoList)
+    persistData(newTodoList); 
+  };
+  
 
   const handleUpdateTodos = (idx) => {
     setTask(todos[idx].content);
@@ -39,19 +39,20 @@ const App = () => {
   }
 
   const handleIsComplete = (idx) => {
-    const newTodoList = todos.map((todo, todoIdx) => 
-      todoIdx == idx ? { ...todo, done: !todo.done } : todo
-    );
+    const newTodoList = todos.map((todoObj, todoIdx) => {
+      if (todoIdx !== idx) return todoObj;
+      return {content : todoObj.content, done : !todoObj.done};
+    });
 
     persistData(newTodoList);
     setTodos(newTodoList);
-    // console.log("called")
-  }
+  };
+
   useEffect(() => {
     if (!localStorage) return;
 
     let localTodos = localStorage.getItem('todos');
-    
+
     if (!localTodos) {
       return;
     }
@@ -63,7 +64,7 @@ const App = () => {
   return (
     <main>
       <TodoInput handleAddTodos={handleAddTodos} task={task} setTask={setTask} />
-      <TodoList todos={todos} handleDeleteTodos={handleDeleteTodos} handleUpdateTodos={handleUpdateTodos} handleIsComplete = {handleIsComplete} />
+      <TodoList todos={todos} handleDeleteTodos={handleDeleteTodos} handleUpdateTodos={handleUpdateTodos} handleIsComplete={handleIsComplete} />
     </main>
   )
 }
